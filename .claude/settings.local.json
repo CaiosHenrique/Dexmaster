@@ -1,0 +1,20 @@
+{
+  "enabledPlugins": {
+    "ecc@ecc": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run start)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx shadcn*)",
+      "Bash(npm install*)",
+      "Bash(npm ci)",
+      "Bash(npx create-next-app@latest *)",
+      "Bash(ls*)",
+      "Bash(rm -rf dexmaster-init)"
+    ]
+  }
+}

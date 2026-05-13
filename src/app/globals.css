@@ -1,0 +1,301 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Tailwind theme mappings (shadcn convention) ───────────────────────── */
+@theme inline {
+  --color-background:              var(--background);
+  --color-foreground:              var(--foreground);
+  --font-sans:                     var(--font-geist-sans);
+  --font-mono:                     var(--font-geist-mono);
+  --font-pixel:                    var(--font-pixel);
+  --color-sidebar-ring:            var(--sidebar-ring);
+  --color-sidebar-border:          var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent:          var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary:         var(--sidebar-primary);
+  --color-sidebar-foreground:      var(--sidebar-foreground);
+  --color-sidebar:                 var(--sidebar);
+  --color-chart-5:                 var(--chart-5);
+  --color-chart-4:                 var(--chart-4);
+  --color-chart-3:                 var(--chart-3);
+  --color-chart-2:                 var(--chart-2);
+  --color-chart-1:                 var(--chart-1);
+  --color-ring:                    var(--ring);
+  --color-input:                   var(--input);
+  --color-border:                  var(--border);
+  --color-destructive:             var(--destructive);
+  --color-accent-foreground:       var(--accent-foreground);
+  --color-accent:                  var(--accent);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-muted:                   var(--muted);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-secondary:               var(--secondary);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-primary:                 var(--primary);
+  --color-popover-foreground:      var(--popover-foreground);
+  --color-popover:                 var(--popover);
+  --color-card-foreground:         var(--card-foreground);
+  --color-card:                    var(--card);
+  --radius-sm:                     calc(var(--radius) * 0.6);
+  --radius-md:                     calc(var(--radius) * 0.8);
+  --radius-lg:                     var(--radius);
+  --radius-xl:                     calc(var(--radius) * 1.4);
+  --radius-2xl:                    calc(var(--radius) * 1.8);
+
+  /* DexMaster semantic tokens */
+  --color-dex-base:                var(--dex-base);
+  --color-dex-surface:             var(--dex-surface);
+  --color-dex-elevated:            var(--dex-elevated);
+  --color-dex-muted:               var(--dex-muted);
+  --color-dex-accent:              var(--dex-accent);
+  --color-dex-accent-glow:         var(--dex-accent-glow);
+  --color-dex-owned:               var(--dex-owned);
+  --color-dex-owned-glow:          var(--dex-owned-glow);
+  --color-dex-missing:             var(--dex-missing);
+
+  /* Pokémon type colors */
+  --color-type-normal:             #A8A8A0;
+  --color-type-fire:               #FF6B35;
+  --color-type-water:              #5090D6;
+  --color-type-electric:           #F4D03F;
+  --color-type-grass:              #63BB5B;
+  --color-type-ice:                #74CEC0;
+  --color-type-fighting:           #CE4069;
+  --color-type-poison:             #AB5AC1;
+  --color-type-ground:             #D97845;
+  --color-type-flying:             #89AAE3;
+  --color-type-psychic:            #FA7179;
+  --color-type-bug:                #90C12C;
+  --color-type-rock:               #C9BB8A;
+  --color-type-ghost:              #5269AD;
+  --color-type-dragon:             #0B6DC3;
+  --color-type-dark:               #5A5366;
+  --color-type-steel:              #5A8EA2;
+  --color-type-fairy:              #EC8FE6;
+}
+
+/* ─── Light theme (kept for shadcn compat — app forces dark) ────────────── */
+:root {
+  --background:            oklch(1 0 0);
+  --foreground:            oklch(0.145 0 0);
+  --card:                  oklch(1 0 0);
+  --card-foreground:       oklch(0.145 0 0);
+  --popover:               oklch(1 0 0);
+  --popover-foreground:    oklch(0.145 0 0);
+  --primary:               oklch(0.205 0 0);
+  --primary-foreground:    oklch(0.985 0 0);
+  --secondary:             oklch(0.97 0 0);
+  --secondary-foreground:  oklch(0.205 0 0);
+  --muted:                 oklch(0.97 0 0);
+  --muted-foreground:      oklch(0.556 0 0);
+  --accent:                oklch(0.97 0 0);
+  --accent-foreground:     oklch(0.205 0 0);
+  --destructive:           oklch(0.577 0.245 27.325);
+  --border:                oklch(0.922 0 0);
+  --input:                 oklch(0.922 0 0);
+  --ring:                  oklch(0.708 0 0);
+  --chart-1:               oklch(0.87 0 0);
+  --chart-2:               oklch(0.556 0 0);
+  --chart-3:               oklch(0.439 0 0);
+  --chart-4:               oklch(0.371 0 0);
+  --chart-5:               oklch(0.269 0 0);
+  --radius:                0.875rem;
+  --sidebar:               oklch(0.985 0 0);
+  --sidebar-foreground:    oklch(0.145 0 0);
+  --sidebar-primary:       oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent:        oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border:        oklch(0.922 0 0);
+  --sidebar-ring:          oklch(0.708 0 0);
+}
+
+/* ─── DexMaster dark theme ──────────────────────────────────────────────── */
+.dark {
+  --background:            oklch(0.09 0.012 265);
+  --foreground:            oklch(0.95 0.005 265);
+  --card:                  oklch(0.13 0.014 265);
+  --card-foreground:       oklch(0.95 0.005 265);
+  --popover:               oklch(0.13 0.014 265);
+  --popover-foreground:    oklch(0.95 0.005 265);
+  --primary:               oklch(0.62 0.22 280);
+  --primary-foreground:    oklch(0.98 0 0);
+  --secondary:             oklch(0.17 0.015 265);
+  --secondary-foreground:  oklch(0.85 0.005 265);
+  --muted:                 oklch(0.17 0.015 265);
+  --muted-foreground:      oklch(0.52 0.03 265);
+  --accent:                oklch(0.62 0.22 280);
+  --accent-foreground:     oklch(0.98 0 0);
+  --destructive:           oklch(0.65 0.22 25);
+  --border:                oklch(1 0 0 / 8%);
+  --input:                 oklch(1 0 0 / 10%);
+  --ring:                  oklch(0.62 0.22 280 / 60%);
+  --chart-1:               oklch(0.62 0.22 280);
+  --chart-2:               oklch(0.65 0.18 165);
+  --chart-3:               oklch(0.70 0.18 45);
+  --chart-4:               oklch(0.65 0.20 340);
+  --chart-5:               oklch(0.60 0.18 220);
+  --sidebar:               oklch(0.11 0.013 265);
+  --sidebar-foreground:    oklch(0.95 0.005 265);
+  --sidebar-primary:       oklch(0.62 0.22 280);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent:        oklch(0.17 0.015 265);
+  --sidebar-accent-foreground: oklch(0.85 0.005 265);
+  --sidebar-border:        oklch(1 0 0 / 6%);
+  --sidebar-ring:          oklch(0.62 0.22 280 / 60%);
+
+  /* DexMaster semantic tokens */
+  --dex-base:              oklch(0.09 0.012 265);
+  --dex-surface:           oklch(0.13 0.014 265);
+  --dex-elevated:          oklch(0.17 0.015 265);
+  --dex-muted:             oklch(0.22 0.015 265);
+  --dex-accent:            oklch(0.62 0.22 280);
+  --dex-accent-glow:       oklch(0.62 0.22 280 / 20%);
+  --dex-owned:             oklch(0.72 0.17 162);
+  --dex-owned-glow:        oklch(0.72 0.17 162 / 20%);
+  --dex-missing:           oklch(0.30 0.01 265);
+}
+
+/* ─── Base layer ────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dex-base text-foreground antialiased;
+    min-height: 100dvh;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+@layer utilities {
+  .font-pixel {
+    font-family: var(--font-pixel), monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .glass {
+    background: oklch(1 0 0 / 4%);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(1 0 0 / 8%);
+  }
+
+  .glow-owned {
+    box-shadow: 0 0 16px var(--dex-owned-glow), 0 0 4px var(--dex-owned-glow);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px var(--dex-accent-glow), 0 0 6px var(--dex-accent-glow);
+  }
+
+  .pokemon-missing {
+    filter: grayscale(0.75) brightness(0.35);
+  }
+
+  .scrollbar-dex {
+    scrollbar-width: thin;
+    scrollbar-color: var(--dex-muted) transparent;
+  }
+  .scrollbar-dex::-webkit-scrollbar { width: 6px; }
+  .scrollbar-dex::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-dex::-webkit-scrollbar-thumb {
+    background: var(--dex-muted);
+    border-radius: 9999px;
+  }
+}
+
+/* ─── Type color utilities ──────────────────────────────────────────────── */
+@layer utilities {
+  .bg-type-normal   { background-color: var(--color-type-normal);   }
+  .bg-type-fire     { background-color: var(--color-type-fire);     }
+  .bg-type-water    { background-color: var(--color-type-water);    }
+  .bg-type-electric { background-color: var(--color-type-electric); }
+  .bg-type-grass    { background-color: var(--color-type-grass);    }
+  .bg-type-ice      { background-color: var(--color-type-ice);      }
+  .bg-type-fighting { background-color: var(--color-type-fighting); }
+  .bg-type-poison   { background-color: var(--color-type-poison);   }
+  .bg-type-ground   { background-color: var(--color-type-ground);   }
+  .bg-type-flying   { background-color: var(--color-type-flying);   }
+  .bg-type-psychic  { background-color: var(--color-type-psychic);  }
+  .bg-type-bug      { background-color: var(--color-type-bug);      }
+  .bg-type-rock     { background-color: var(--color-type-rock);     }
+  .bg-type-ghost    { background-color: var(--color-type-ghost);    }
+  .bg-type-dragon   { background-color: var(--color-type-dragon);   }
+  .bg-type-dark     { background-color: var(--color-type-dark);     }
+  .bg-type-steel    { background-color: var(--color-type-steel);    }
+  .bg-type-fairy    { background-color: var(--color-type-fairy);    }
+
+  .text-type-normal   { color: var(--color-type-normal);   }
+  .text-type-fire     { color: var(--color-type-fire);     }
+  .text-type-water    { color: var(--color-type-water);    }
+  .text-type-electric { color: var(--color-type-electric); }
+  .text-type-grass    { color: var(--color-type-grass);    }
+  .text-type-ice      { color: var(--color-type-ice);      }
+  .text-type-fighting { color: var(--color-type-fighting); }
+  .text-type-poison   { color: var(--color-type-poison);   }
+  .text-type-ground   { color: var(--color-type-ground);   }
+  .text-type-flying   { color: var(--color-type-flying);   }
+  .text-type-psychic  { color: var(--color-type-psychic);  }
+  .text-type-bug      { color: var(--color-type-bug);      }
+  .text-type-rock     { color: var(--color-type-rock);     }
+  .text-type-ghost    { color: var(--color-type-ghost);    }
+  .text-type-dragon   { color: var(--color-type-dragon);   }
+  .text-type-dark     { color: var(--color-type-dark);     }
+  .text-type-steel    { color: var(--color-type-steel);    }
+  .text-type-fairy    { color: var(--color-type-fairy);    }
+}
+
+/* ─── Animations ────────────────────────────────────────────────────────── */
+@keyframes capture-flash {
+  0%   { opacity: 1; transform: scale(1); }
+  30%  { opacity: 0.4; transform: scale(0.95); filter: brightness(1.8); }
+  60%  { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes dex-progress-fill {
+  from { width: 0%; }
+}
+
+.animate-capture {
+  animation: capture-flash 0.45s ease-out;
+}
+
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 5%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+.animate-progress-fill {
+  animation: dex-progress-fill 1s ease-out;
+}
