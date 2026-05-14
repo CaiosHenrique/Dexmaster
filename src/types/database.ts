@@ -63,6 +63,7 @@ export interface EvSpread {
 }
 
 // ─── Database shape ───────────────────────────────────────────────────────────
+// Every table must have Relationships: [] to satisfy supabase-js GenericTable.
 // Insert/Update types are written inline (not via Omit<Database[...]["Row"]>)
 // to avoid circular self-references that cause TypeScript to resolve to never.
 
@@ -109,6 +110,7 @@ export interface Database {
           shape?: string | null;
           created_at?: string;
         };
+        Relationships: [];
       };
       pokemon_forms: {
         Row: {
@@ -168,6 +170,7 @@ export interface Database {
           gender_rate?: number | null;
           created_at?: string;
         };
+        Relationships: [];
       };
       evolution_steps: {
         Row: {
@@ -200,6 +203,7 @@ export interface Database {
           trigger_item?: string | null;
           conditions?: Json | null;
         };
+        Relationships: [];
       };
       games: {
         Row: {
@@ -229,6 +233,7 @@ export interface Database {
           release_year?: number | null;
           region?: string | null;
         };
+        Relationships: [];
       };
       locations: {
         Row: {
@@ -249,6 +254,7 @@ export interface Database {
           name?: string;
           display_name?: string;
         };
+        Relationships: [];
       };
       pokemon_availability: {
         Row: {
@@ -284,6 +290,7 @@ export interface Database {
           is_version_exclusive?: boolean;
           exclusive_version?: string | null;
         };
+        Relationships: [];
       };
       competitive_sets: {
         Row: {
@@ -328,6 +335,7 @@ export interface Database {
           description?: string | null;
           updated_at?: string;
         };
+        Relationships: [];
       };
       ownerships: {
         Row: {
@@ -369,11 +377,13 @@ export interface Database {
           notes?: string | null;
           created_at?: string;
         };
+        Relationships: [];
       };
       user_games: {
         Row: { user_id: string; game_id: number };
         Insert: { user_id: string; game_id: number };
         Update: { user_id?: string; game_id?: number };
+        Relationships: [];
       };
       game_expansions: {
         Row: {
@@ -400,6 +410,7 @@ export interface Database {
           release_year?: number | null;
           is_dlc?: boolean;
         };
+        Relationships: [];
       };
       pokedexes: {
         Row: {
@@ -438,6 +449,7 @@ export interface Database {
           is_national?: boolean;
           sort_order?: number;
         };
+        Relationships: [];
       };
       dex_entries: {
         Row: {
@@ -458,6 +470,7 @@ export interface Database {
           species_id?: number;
           dex_number?: number;
         };
+        Relationships: [];
       };
     };
     Views: Record<string, never>;

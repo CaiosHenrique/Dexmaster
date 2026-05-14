@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Database, FormCategory } from "@/types/database";
+import type { Database, FormCategory, BaseStats } from "@/types/database";
 import { batchFetch, extractIdFromUrl } from "./client";
 import type { PokeAPISpecies, PokeAPIPokemon } from "./client";
 
@@ -41,12 +41,12 @@ function countsForCompletion(cat: FormCategory): boolean {
   return cat === "base" || cat === "regional" || cat === "paradox";
 }
 
-function extractStats(stats: PokeAPIPokemon["stats"]) {
-  const keyMap: Record<string, string> = {
+function extractStats(stats: PokeAPIPokemon["stats"]): BaseStats {
+  const keyMap: Record<string, keyof Omit<BaseStats, "total">> = {
     "hp": "hp", "attack": "atk", "defense": "def",
     "special-attack": "spa", "special-defense": "spd", "speed": "spe",
   };
-  const out: Record<string, number> = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, total: 0 };
+  const out: BaseStats = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, total: 0 };
   for (const s of stats) {
     const key = keyMap[s.stat.name];
     if (key) out[key] = s.base_stat;
