@@ -25,9 +25,9 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/dashboard",    icon: LayoutDashboard, label: "Dashboard"    },
   { href: "/pokedex",      icon: BookOpen,         label: "Pokédex"      },
   { href: "/collection",   icon: Sparkles,         label: "Collection"   },
-  { href: "/team",         icon: Users,            label: "Team Builder", disabled: true },
-  { href: "/competitive",  icon: Swords,           label: "Competitive",  disabled: true },
-  { href: "/achievements", icon: Trophy,           label: "Achievements", disabled: true },
+  { href: "/team",         icon: Users,  label: "Team Builder" },
+  { href: "/competitive",  icon: Swords, label: "Competitive"  },
+  { href: "/achievements", icon: Trophy, label: "Achievements" },
 ];
 
 interface SidebarProps {

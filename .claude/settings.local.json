@@ -1,7 +1,4 @@
 {
-  "enabledPlugins": {
-    "ecc@ecc": true
-  },
   "permissions": {
     "allow": [
       "Bash(npm run dev)",
@@ -14,7 +11,11 @@
       "Bash(npm ci)",
       "Bash(npx create-next-app@latest *)",
       "Bash(ls*)",
-      "Bash(rm -rf dexmaster-init)"
+      "Bash(rm -rf dexmaster-init)",
+      "Skill(ecc:feature-dev)"
     ]
+  },
+  "enabledPlugins": {
+    "ecc@ecc": true
   }
 }

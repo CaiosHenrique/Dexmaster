@@ -299,3 +299,38 @@
 .animate-progress-fill {
   animation: dex-progress-fill 1s ease-out;
 }
+
+@keyframes select-pop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.91); }
+  65%  { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+@keyframes owned-burst {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0 var(--dex-owned-glow); }
+  40%  { transform: scale(1.03); box-shadow: 0 0 0 8px var(--dex-owned-glow); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes bar-rise {
+  from { opacity: 0; transform: translateX(-50%) translateY(16px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.animate-select-pop {
+  animation: select-pop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-owned-burst {
+  animation: owned-burst 0.45s ease-out;
+}
+
+.animate-bar-rise {
+  animation: bar-rise 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
